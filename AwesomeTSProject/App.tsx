@@ -9,6 +9,8 @@
  */
 
 import React from 'react';
+import {Provider} from 'react-redux';
+import {store} from './store';
 import {
   SafeAreaView,
   // ScrollView,
@@ -27,6 +29,9 @@ import {
   // ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import TopBar from './components/TopBar';
+import CryptoList from './containers/CryptoList';
+
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -34,7 +39,14 @@ const App = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  return <SafeAreaView style={backgroundStyle}></SafeAreaView>;
+  return (
+    <Provider store={store}>
+      <SafeAreaView style={backgroundStyle}>
+        <TopBar />
+        <CryptoList />
+      </SafeAreaView>
+    </Provider>
+  );
 };
 
 // const styles = StyleSheet.create({
