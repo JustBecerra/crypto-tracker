@@ -1,8 +1,6 @@
 export interface cryptoType {
-  data: {
-    id: string;
-    symbol: string;
-    name: string;
-    slug: string;
-  };
+  id: string;
+  symbol: string;
+  name: string;
+  imageURL: string;
 }

@@ -12,7 +12,7 @@ export default function TopBar() {
 const styles = StyleSheet.create({
   TopBarSection: {
     padding: 24,
-    backgroundColor: '#2d3187',
+    backgroundColor: '#385775',
   },
   Title: {
     color: '#ffffff',
