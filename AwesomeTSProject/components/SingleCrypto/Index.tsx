@@ -6,9 +6,21 @@ import {
   CryptoName,
   CryptoSymbol,
   CryptoLogo,
+  ActualValue,
+  Increase,
+  Decrease,
+  IncArrow,
+  DecArrow,
+  ArrowCont,
 } from './Styles';
 
-export default function SingleCrypto({name, symbol, imageURL}: cryptoType) {
+export default function SingleCrypto({
+  name,
+  symbol,
+  value,
+  incDec,
+  imageURL,
+}: cryptoType) {
   return (
     <OneCrypto>
       <CryptoLogo source={imageURL} />
@@ -16,6 +28,18 @@ export default function SingleCrypto({name, symbol, imageURL}: cryptoType) {
         <CryptoName>{name}</CryptoName>
         <CryptoSymbol>{symbol}</CryptoSymbol>
       </NamesContainer>
+      <ActualValue>${value}</ActualValue>
+      {parseInt(incDec, 10) > 2.5 ? (
+        <ArrowCont>
+          <IncArrow source={require('../../assets/increaseArrow.png')} />
+          <Increase>{incDec}</Increase>
+        </ArrowCont>
+      ) : (
+        <ArrowCont>
+          <DecArrow source={require('../../assets/decreaseArrow.png')} />
+          <Decrease>{incDec}</Decrease>
+        </ArrowCont>
+      )}
     </OneCrypto>
   );
 }

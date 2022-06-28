@@ -1,10 +1,9 @@
-import {View} from 'react-native';
+import {ScrollView} from 'react-native';
 import React from 'react';
 // import {useSelector, useDispatch} from 'react-redux';
 // import {RootState} from '../../store';
 import SingleCrypto from '../../components/SingleCrypto/Index';
 import {LocalCryptos} from '../../store/localAPI/Index';
-// import {GET_CRYPTOS} from '../../store/reducer/RootReducer';
 
 export default function CryptoList() {
   // const cryptos = useSelector((state: RootState) => state.cryptos);
@@ -19,12 +18,13 @@ export default function CryptoList() {
   // }
   // console.log(LocalCryptos);
   return (
-    <View>
+    // eslint-disable-next-line react-native/no-inline-styles
+    <ScrollView style={{height: '90%'}}>
       {LocalCryptos &&
         LocalCryptos.map(c => {
           return <SingleCrypto key={c.id} {...c} />;
         })}
       {/* <AddCrypto /> */}
-    </View>
+    </ScrollView>
   );
 }
