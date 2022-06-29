@@ -10,7 +10,7 @@ import {
   Increase,
   Decrease,
   ArrowCont,
-} from './Styles';
+} from './styles';
 import IncreaseArrow from '../../../assets/IncreaseArrow.png';
 import DecreaseArrow from '../../../assets/DecreaseArrow.png';
 import {Image} from 'react-native';

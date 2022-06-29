@@ -1,6 +1,6 @@
 import {cryptoType} from '../types/CryptoTypes';
 
-export const LocalCryptos: cryptoType[] = [
+const LocalCryptos: cryptoType[] = [
   {
     id: 'BCT',
     symbol: 'BCT',
@@ -82,3 +82,5 @@ export const LocalCryptos: cryptoType[] = [
     imageURL: require('../../assets/Dogecoin.png'),
   },
 ];
+
+export default LocalCryptos;
