@@ -1,4 +1,3 @@
-import {StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import {theme} from '../../utils/theme';
 
@@ -43,30 +42,29 @@ export const addBtext = styled.Text`
   color: ${theme.colors.gray},
 `;
 
-export const styles = StyleSheet.create({
-  modbutton: {
-    alignSelf: 'center',
-    justifySelf: 'center',
-    paddingVertical: 10,
-    width: '50%',
-    backgroundColor: 'transparent',
-  },
+export const modbutton = styled.Button`
+  alignSelf: center,
+  justifySelf: center,
+  paddingVertical: 10px,
+  width: 50%,
+  backgroundColor: transparent,
+`;
 
-  backbutton: {
-    alignSelf: 'flex-start',
-    width: '50%',
-    elevation: 3,
-    paddingVertical: 10,
-  },
-  addbutton: {
-    width: '40%',
-    height: '7%',
-    backgroundColor: '#fbd24d',
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'flex-end',
-    marginRight: '5%',
-    position: 'relative',
-    top: '40%',
-  },
-});
+export const backbutton = styled.Button`
+  alignSelf: flex-start,
+  width: 50%,
+  elevation: 3px,
+  paddingVertical: 10px,
+`;
+
+export const addbutton = styled.Button`
+  width: 40%,
+  height: 7%,
+  backgroundColor: ${theme.colors.BackgroundAddButton},
+  justifyContent: center,
+  alignItems: center,
+  alignSelf: flex-end,
+  marginRight: 5%,
+  position: relative,
+  top: 40%,
+`;

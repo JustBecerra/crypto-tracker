@@ -1,12 +1,17 @@
 import {Modal, View, Pressable, Text} from 'react-native';
 import React, {useState} from 'react';
-import {CryptoInput, AddText, backtext, modaltext, styles} from './styles';
+import {
+  CryptoInput,
+  AddText,
+  backtext,
+  modaltext,
+  modbutton,
+  backbutton,
+} from './styles';
 
 const AddCrypto = () => {
   const [text, onChangeText] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
-
-  let modalBind = setModalVisible.bind(null, !modalVisible);
 
   return (
     <View>
@@ -14,15 +19,19 @@ const AddCrypto = () => {
         animationType="slide"
         visible={modalVisible}
         onRequestClose={() => {
-          modalBind();
+          setModalVisible.bind(null, !modalVisible);
         }}>
-        <Pressable style={styles.backbutton} onPress={() => modalBind()}>
+        <Pressable
+          style={backbutton}
+          onPress={setModalVisible.bind(null, !modalVisible)}>
           <Text style={backtext}>&lt;- Back to the list</Text>
         </Pressable>
         <AddText>Add a Cryptocurrency</AddText>
         <CryptoInput value={text} onChangeText={onChangeText} />
       </Modal>
-      <Pressable style={styles.modbutton} onPress={() => modalBind()}>
+      <Pressable
+        style={modbutton}
+        onPress={setModalVisible.bind(null, !modalVisible)}>
         <Text style={modaltext}>+ Add a Cryptocurrency</Text>
       </Pressable>
     </View>

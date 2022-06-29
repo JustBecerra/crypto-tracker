@@ -5,7 +5,6 @@ export const RootReducer = createSlice({
   name: 'Cryptos',
   initialState: {
     cryptos: [] as cryptoType[],
-    // loading: false,
   },
   reducers: {
     GET_CRYPTOS: (state, action: PayloadAction<cryptoType[]>) => {
