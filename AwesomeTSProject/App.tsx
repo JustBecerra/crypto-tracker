@@ -15,8 +15,8 @@ import {SafeAreaView, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-import TopBar from './components/TopBar/Index';
-import CryptoList from './containers/CryptoList/CryptoList';
+import TopBar from './src/components/TopBar/Index';
+import CryptoList from './src/containers/CryptoList/CryptoList';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';

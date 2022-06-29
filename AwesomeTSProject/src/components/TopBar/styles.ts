@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {theme} from '../../utils/theme';
 
 export const ProfilePicture = styled.Image`
     width: 50px;
@@ -11,7 +12,7 @@ export const ProfilePicture = styled.Image`
 export const TopBarSection = styled.View`
     padding: 24px;
     height: 100px;
-    backgroundColor: #385775;
+    backgroundColor: ${theme.colors.TopBarColor};
 `;
 
 export const Title = styled.Text`
