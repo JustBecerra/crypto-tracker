@@ -1,17 +1,29 @@
-import {Modal, View, Pressable, Text} from 'react-native';
+import {Modal, View, Pressable} from 'react-native';
 import React, {useState} from 'react';
 import {
   CryptoInput,
   AddText,
-  backtext,
-  modaltext,
-  modbutton,
-  backbutton,
+  BackText,
+  OpenModalText,
+  ModalText,
 } from './styles';
+import {useDispatch} from 'react-redux';
+import {AppDispatch} from '../../../store';
+import {GET_CRYPTO} from '../../../store/reducer/RootReducer';
 
 const AddCrypto = () => {
   const [text, onChangeText] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleCrypto = (crypto: string) => {
+    try {
+      dispatch(GET_CRYPTO(crypto));
+      setModalVisible.bind(null, !modalVisible);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <View>
@@ -21,18 +33,17 @@ const AddCrypto = () => {
         onRequestClose={() => {
           setModalVisible.bind(null, !modalVisible);
         }}>
-        <Pressable
-          style={backbutton}
-          onPress={setModalVisible.bind(null, !modalVisible)}>
-          <Text style={backtext}>&lt;- Back to the list</Text>
+        <Pressable onPress={setModalVisible.bind(null, !modalVisible)}>
+          <BackText>&lt; Back to the list</BackText>
         </Pressable>
         <AddText>Add a Cryptocurrency</AddText>
         <CryptoInput value={text} onChangeText={onChangeText} />
+        <Pressable onPress={() => handleCrypto(text)}>
+          <ModalText>Add</ModalText>
+        </Pressable>
       </Modal>
-      <Pressable
-        style={modbutton}
-        onPress={setModalVisible.bind(null, !modalVisible)}>
-        <Text style={modaltext}>+ Add a Cryptocurrency</Text>
+      <Pressable onPress={setModalVisible.bind(null, !modalVisible)}>
+        <OpenModalText>+ Add a Cryptocurrency</OpenModalText>
       </Pressable>
     </View>
   );

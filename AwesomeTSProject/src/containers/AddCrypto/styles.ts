@@ -19,52 +19,38 @@ export const AddText = styled.Text`
   fontWeight: bold;
 `;
 
-export const backtext = styled.Text`
-  fontSize: 20px,
-  lineHeight: 21px,
-  fontWeight: bold,
-  letterSpacing: 0.25,
-  color: ${theme.colors.gray},
+export const BackText = styled.Text`
+  fontSize: 20px;
+  lineHeight: 21px;
+  fontWeight: bold;
+  letterSpacing: 0.25px;
+  color: ${theme.colors.gray};
+  paddingLeft: 10px;
+  paddingTop: 10px;
 `;
 
-export const modaltext = styled.Text`
-  fontSize: 16px,
-  lineHeight: 21px,
-  fontWeight: bold,
-  letterSpacing: 0.25,
-  color: ${theme.colors.gray},
-`;
-export const addBtext = styled.Text`
-  fontSize: 16px,
-  lineHeight: 21px,
-  fontWeight: bold,
-  letterSpacing: 0.25,
-  color: ${theme.colors.gray},
+export const OpenModalText = styled.Text`
+  paddingVertical: 10px;
+  fontSize: 20px;
+  lineHeight: 21px;
+  fontWeight: bold;
+  letterSpacing: 0.25px;
+  color: ${theme.colors.gray};
+  textAlign:center;
 `;
 
-export const modbutton = styled.Button`
-  alignSelf: center,
-  justifySelf: center,
-  paddingVertical: 10px,
-  width: 50%,
-  backgroundColor: transparent,
-`;
-
-export const backbutton = styled.Button`
-  alignSelf: flex-start,
-  width: 50%,
-  elevation: 3px,
-  paddingVertical: 10px,
-`;
-
-export const addbutton = styled.Button`
-  width: 40%,
-  height: 7%,
-  backgroundColor: ${theme.colors.BackgroundAddButton},
-  justifyContent: center,
-  alignItems: center,
-  alignSelf: flex-end,
-  marginRight: 5%,
-  position: relative,
-  top: 40%,
+export const ModalText = styled.Text`
+  fontSize: 20px;
+  lineHeight: 21px;
+  fontWeight: bold;
+  letterSpacing: 0.25px;
+  color: ${theme.colors.gray};
+  backgroundColor:${theme.colors.BackgroundAddButton};
+  textAlign: center;
+  textAlignVertical: center;
+  width: 45%;
+  height: 50px;
+  position: absolute;
+  top: 280px;
+  left: 50%;
 `;
