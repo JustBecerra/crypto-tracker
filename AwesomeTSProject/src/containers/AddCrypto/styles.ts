@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import {theme} from '../../utils/theme';
 
 export const CryptoInput = styled.TextInput`
-  border: 2px solid ${theme.colors.CryptoInputColor};
+  border: 2px solid ${theme.colors.gray};
   width: 90%;
   height: 8%;
   position: relative;
@@ -44,7 +44,7 @@ export const ModalText = styled.Text`
   lineHeight: 21px;
   fontWeight: bold;
   letterSpacing: 0.25px;
-  color: ${theme.colors.gray};
+  color: ${theme.colors.TopBarColor};
   backgroundColor:${theme.colors.BackgroundAddButton};
   textAlign: center;
   textAlignVertical: center;

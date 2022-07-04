@@ -1,17 +1,19 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {cryptoType} from '../types/CryptoTypes';
+import LocalCryptos from '../localAPI/local';
 
 export const RootReducer = createSlice({
-  name: 'selectedCrypto',
+  name: 'cryptos',
   initialState: {
-    crypto: '' as string,
+    cryptos: [] as cryptoType[],
   },
   reducers: {
-    GET_CRYPTO: (state, action: PayloadAction<string>) => {
-      state.crypto = action.payload;
+    GET_CRYPTOS: (state, action: PayloadAction<cryptoType>) => {
+      state.cryptos.push(action.payload);
     },
   },
 });
 
-export const {GET_CRYPTO} = RootReducer.actions;
+export const {GET_CRYPTOS} = RootReducer.actions;
 
 export default RootReducer.reducer;

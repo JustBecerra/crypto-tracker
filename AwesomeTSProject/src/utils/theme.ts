@@ -8,5 +8,6 @@ export const theme = {
     TopBarColor: '#385775',
     CryptoInputColor: '#fbd24d',
     BackgroundAddButton: '#fbd24d',
+    lightgray: '#999696',
   },
 };
