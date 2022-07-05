@@ -25,39 +25,26 @@ const AddCrypto = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const findDuplicate = () => {
-    const duplicate = Cryptos.find(
-      elem => elem.name === text || elem.symbol === text,
-    );
-    if (duplicate) {
-      return true;
-    }
+    return Cryptos.find(elem => elem.name === text || elem.symbol === text);
   };
 
   const findStock = () => {
-    const newCrypto = LocalCryptos.find(
+    return LocalCryptos.find(
       elem => elem.name === text || elem.symbol === text,
     );
-    if (newCrypto) {
-      return newCrypto;
-    }
-    return false;
   };
 
   const handleCrypto = () => {
     try {
       if (findDuplicate()) {
-        setModalVisible(!modalVisible);
-        onChangeText('');
         Alert.alert('error', 'Crypto already displayed');
-      } else if (findStock() === false) {
-        setModalVisible(!modalVisible);
-        onChangeText('');
+      } else if (!findStock()) {
         Alert.alert('error', 'Crypto not available');
       } else {
         dispatch(GET_CRYPTOS(findStock() as cryptoType));
-        setModalVisible(!modalVisible);
-        onChangeText('');
       }
+      setModalVisible(!modalVisible);
+      onChangeText('');
     } catch (err) {
       console.log(err);
     }
@@ -83,13 +70,11 @@ const AddCrypto = () => {
           onChangeText={onChangeText}
           placeholder="Use a name or ticker symbol"
         />
-        <Pressable onPress={() => handleCrypto()}>
+        <Pressable onPress={handleCrypto}>
           <ModalText
             style={{
               color:
-                borderColor === theme.colors.gray
-                  ? theme.colors.lightgray
-                  : theme.colors.TopBarColor,
+                text === '' ? theme.colors.lightgray : theme.colors.TopBarColor,
             }}>
             Add
           </ModalText>
