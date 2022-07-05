@@ -19,13 +19,13 @@ const AddCrypto = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [borderColor, setBorderColor] = useState(theme.colors.gray);
 
-  const Cryptos = useSelector(
+  const cryptos = useSelector(
     (state: RootState) => state.selectedCrypto.cryptos,
   );
   const dispatch = useDispatch<AppDispatch>();
 
   const findDuplicate = () => {
-    return Cryptos.find(elem => elem.name === text || elem.symbol === text);
+    return cryptos.find(elem => elem.name === text || elem.symbol === text);
   };
 
   const findStock = () => {
