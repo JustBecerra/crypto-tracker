@@ -16,41 +16,43 @@ export const AddText = styled.Text`
   position: relative;
   top: 35%;
   left: 6%;
-  fontWeight: bold;
+  lineheight:36px;
+  fontWeight: 700;
+  fontFamily: Inter;
+  letterSpacing: 0.25px;
 `;
 
 export const BackText = styled.Text`
-  fontSize: 20px;
-  lineHeight: 21px;
-  fontWeight: bold;
-  letterSpacing: 0.25px;
-  color: ${theme.colors.gray};
+  fontSize: 16px;
+  lineHeight: 24px;
+  fontWeight: 400;
+  color: ${theme.colors.TopBarColor};
   paddingLeft: 10px;
   paddingTop: 10px;
+  fontFamily: Inter;
 `;
 
 export const OpenModalText = styled.Text`
-  paddingVertical: 10px;
-  fontSize: 20px;
-  lineHeight: 21px;
-  fontWeight: bold;
-  letterSpacing: 0.25px;
-  color: ${theme.colors.gray};
+  marginTop: 50px;
+  fontSize: 16px;
+  lineHeight: 24px;
+  color: ${theme.colors.TopBarColor};
   textAlign:center;
+  fontFamily: Inter;
 `;
 
 export const ModalText = styled.Text`
-  fontSize: 20px;
-  lineHeight: 21px;
-  fontWeight: bold;
+  fontSize: 18px;
+  lineHeight: 24px;
+  fontWeight: 600;
   letterSpacing: 0.25px;
   color: ${theme.colors.TopBarColor};
-  backgroundColor:${theme.colors.BackgroundAddButton};
+  backgroundColor:${theme.colors.CryptoInputColor};
   textAlign: center;
   textAlignVertical: center;
-  width: 45%;
-  height: 50px;
-  position: absolute;
+  width: 155px;
+  height: 48px;
+  position: relative;
   top: 280px;
-  left: 50%;
+  left: 55.5%;
 `;

@@ -23,15 +23,15 @@ const SingleCrypto = ({name, symbol, value, incDec, imageURL}: cryptoType) => (
       <CryptoSymbol>{symbol}</CryptoSymbol>
     </NamesContainer>
     <ActualValue>${value}</ActualValue>
-    {parseInt(incDec, 10) > 2.5 ? (
+    {parseInt(incDec, 10) > 2 ? (
       <ArrowCont>
         <Image source={IncreaseArrow} />
-        <Increase>{incDec}</Increase>
+        <Increase>{incDec}%</Increase>
       </ArrowCont>
     ) : (
       <ArrowCont>
         <Image source={DecreaseArrow} />
-        <Decrease>{incDec}</Decrease>
+        <Decrease>{incDec}%</Decrease>
       </ArrowCont>
     )}
   </OneCrypto>

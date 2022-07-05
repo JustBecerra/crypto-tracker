@@ -1,6 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {cryptoType} from '../types/CryptoTypes';
-import LocalCryptos from '../localAPI/local';
 
 export const RootReducer = createSlice({
   name: 'cryptos',

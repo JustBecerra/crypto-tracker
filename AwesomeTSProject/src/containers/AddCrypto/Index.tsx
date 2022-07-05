@@ -25,30 +25,27 @@ const AddCrypto = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const findDuplicate = () => {
-    let duplicate = Cryptos.find(
+    const duplicate = Cryptos.find(
       elem => elem.name === text || elem.symbol === text,
     );
-    if (duplicate !== undefined) {
+    if (duplicate) {
       return true;
-    } else {
-      return false;
     }
   };
 
   const findStock = () => {
-    let newCrypto = LocalCryptos.find(
+    const newCrypto = LocalCryptos.find(
       elem => elem.name === text || elem.symbol === text,
     );
-    if (newCrypto === undefined) {
-      return false;
-    } else {
+    if (newCrypto) {
       return newCrypto;
     }
+    return false;
   };
 
   const handleCrypto = () => {
     try {
-      if (findDuplicate() === true) {
+      if (findDuplicate()) {
         setModalVisible(!modalVisible);
         onChangeText('');
         Alert.alert('error', 'Crypto already displayed');
@@ -66,14 +63,6 @@ const AddCrypto = () => {
     }
   };
 
-  const setButtonColor = () => {
-    if (borderColor === theme.colors.gray) {
-      return theme.colors.lightgray;
-    } else {
-      return theme.colors.TopBarColor;
-    }
-  };
-
   return (
     <View>
       <Modal
@@ -87,15 +76,23 @@ const AddCrypto = () => {
         </Pressable>
         <AddText>Add a Cryptocurrency</AddText>
         <CryptoInput
-          onBlur={() => setBorderColor(theme.colors.gray)}
-          onFocus={() => setBorderColor(theme.colors.CryptoInputColor)}
+          onBlur={setBorderColor.bind(null, theme.colors.gray)}
+          onFocus={setBorderColor.bind(null, theme.colors.CryptoInputColor)}
           style={{borderColor}}
           value={text}
           onChangeText={onChangeText}
-          placeholder="Enter name of crypto"
+          placeholder="Use a name or ticker symbol"
         />
         <Pressable onPress={() => handleCrypto()}>
-          <ModalText style={{color: setButtonColor()}}>Add</ModalText>
+          <ModalText
+            style={{
+              color:
+                borderColor === theme.colors.gray
+                  ? theme.colors.lightgray
+                  : theme.colors.TopBarColor,
+            }}>
+            Add
+          </ModalText>
         </Pressable>
       </Modal>
       <Pressable onPress={setModalVisible.bind(null, !modalVisible)}>

@@ -6,14 +6,14 @@ import {useSelector} from 'react-redux';
 import {RootState} from '../../../store/index';
 
 const CryptoList = () => {
-  const Cryptos = useSelector(
+  const cryptos = useSelector(
     (state: RootState) => state.selectedCrypto.cryptos,
   );
 
   return (
     <Scrolls>
-      {Cryptos &&
-        Cryptos.map(c => {
+      {cryptos &&
+        cryptos.map(c => {
           return <SingleCrypto key={c.id} {...c} />;
         })}
       <AddCrypto />

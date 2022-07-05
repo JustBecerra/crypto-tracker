@@ -17,10 +17,8 @@ import TopBar from './src/components/TopBar';
 import CryptoList from './src/containers/CryptoList';
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: 'rgba(255, 255, 255, 1)',
   };
 
   return (
