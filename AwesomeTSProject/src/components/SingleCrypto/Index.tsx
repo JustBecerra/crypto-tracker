@@ -11,8 +11,8 @@ import {
   Decrease,
   ArrowCont,
 } from './styles';
-import IncreaseArrow from '../../../assets/IncreaseArrow.png';
-import DecreaseArrow from '../../../assets/DecreaseArrow.png';
+import IncreaseArrow from '../../../assets/increaseArrow.png';
+import DecreaseArrow from '../../../assets/decreaseArrow.png';
 import {Image} from 'react-native';
 
 const SingleCrypto = ({name, symbol, value, incDec, imageURL}: cryptoType) => (
