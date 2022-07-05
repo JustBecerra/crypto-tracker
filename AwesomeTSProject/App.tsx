@@ -11,16 +11,14 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import {store} from './store';
-import {SafeAreaView, useColorScheme} from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {SafeAreaView} from 'react-native';
 import TopBar from './src/components/TopBar';
 import CryptoList from './src/containers/CryptoList';
+import {theme} from './src/utils/theme';
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: theme.colors.white,
   };
 
   return (

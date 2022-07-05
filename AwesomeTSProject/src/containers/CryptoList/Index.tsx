@@ -1,15 +1,24 @@
 import React from 'react';
 import SingleCrypto from '../../components/SingleCrypto';
-import LocalCryptos from '../../../store/localAPI/local';
 import {Scrolls} from './styles';
+import AddCrypto from '../AddCrypto';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../../store/index';
 
-const CryptoList = () => (
-  <Scrolls>
-    {LocalCryptos &&
-      LocalCryptos.map(c => {
-        return <SingleCrypto key={c.id} {...c} />;
-      })}
-  </Scrolls>
-);
+const CryptoList = () => {
+  const cryptos = useSelector(
+    (state: RootState) => state.selectedCrypto.cryptos,
+  );
+
+  return (
+    <Scrolls>
+      {cryptos &&
+        cryptos.map(c => {
+          return <SingleCrypto key={c.id} {...c} />;
+        })}
+      <AddCrypto />
+    </Scrolls>
+  );
+};
 
 export default CryptoList;

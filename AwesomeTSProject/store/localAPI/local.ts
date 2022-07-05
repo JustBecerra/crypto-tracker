@@ -6,7 +6,7 @@ const LocalCryptos: cryptoType[] = [
     symbol: 'BCT',
     name: 'Bitcoin',
     value: '1.234',
-    incDec: '2.3%',
+    incDec: '2.3',
     imageURL: require('../../assets/Bitcoin.png'),
   },
   {
@@ -14,7 +14,7 @@ const LocalCryptos: cryptoType[] = [
     symbol: 'ETH',
     name: 'Ethereum',
     value: '1.485',
-    incDec: '5.4%',
+    incDec: '5.4',
     imageURL: require('../../assets/Ethereum.png'),
   },
   {
@@ -22,7 +22,7 @@ const LocalCryptos: cryptoType[] = [
     symbol: 'XRP',
     name: 'XRP',
     value: '0.923',
-    incDec: '2.3%',
+    incDec: '2.3',
     imageURL: require('../../assets/XRP.png'),
   },
   {
@@ -30,7 +30,7 @@ const LocalCryptos: cryptoType[] = [
     symbol: 'LTC',
     name: 'Litecoin',
     value: '1.214',
-    incDec: '3.4%',
+    incDec: '3.4',
     imageURL: require('../../assets/Litecoin.png'),
   },
   {
@@ -38,7 +38,7 @@ const LocalCryptos: cryptoType[] = [
     symbol: 'DOGE',
     name: 'Dogecoin',
     value: '5.834',
-    incDec: '5.2%',
+    incDec: '5.2',
     imageURL: require('../../assets/Dogecoin.png'),
   },
   {
@@ -46,7 +46,7 @@ const LocalCryptos: cryptoType[] = [
     symbol: 'PRC',
     name: 'Prepcoin',
     value: '1.912',
-    incDec: '2.1%',
+    incDec: '2.1',
     imageURL: require('../../assets/Dogecoin.png'),
   },
   {
@@ -54,7 +54,7 @@ const LocalCryptos: cryptoType[] = [
     symbol: 'FRC',
     name: 'Fillercoin',
     value: '0.129',
-    incDec: '1.2%',
+    incDec: '1.2',
     imageURL: require('../../assets/Dogecoin.png'),
   },
   {
@@ -62,7 +62,7 @@ const LocalCryptos: cryptoType[] = [
     symbol: 'GDE',
     name: 'Gooddoge',
     value: '1.109',
-    incDec: '3.2%',
+    incDec: '3.2',
     imageURL: require('../../assets/Dogecoin.png'),
   },
   {
@@ -70,7 +70,7 @@ const LocalCryptos: cryptoType[] = [
     symbol: 'BDE',
     name: 'Baddoge',
     value: '3.923',
-    incDec: '2.1%',
+    incDec: '2.1',
     imageURL: require('../../assets/Dogecoin.png'),
   },
   {
@@ -78,7 +78,7 @@ const LocalCryptos: cryptoType[] = [
     symbol: 'HDE',
     name: 'Heydoge',
     value: '1.902',
-    incDec: '5.3%',
+    incDec: '5.3',
     imageURL: require('../../assets/Dogecoin.png'),
   },
 ];

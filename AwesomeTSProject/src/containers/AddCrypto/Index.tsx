@@ -1,17 +1,54 @@
-import {Modal, View, Pressable, Text} from 'react-native';
+import {Modal, View, Pressable, Alert} from 'react-native';
 import React, {useState} from 'react';
 import {
   CryptoInput,
   AddText,
-  backtext,
-  modaltext,
-  modbutton,
-  backbutton,
+  BackText,
+  OpenModalText,
+  ModalText,
 } from './styles';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppDispatch, RootState} from '../../../store';
+import {GET_CRYPTOS} from '../../../store/reducer/RootReducer';
+import LocalCryptos from '../../../store/localAPI/local';
+import {cryptoType} from '../../../store/types/CryptoTypes';
+import {theme} from '../../utils/theme';
 
 const AddCrypto = () => {
   const [text, onChangeText] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
+  const [borderColor, setBorderColor] = useState(theme.colors.gray);
+
+  const cryptos = useSelector(
+    (state: RootState) => state.selectedCrypto.cryptos,
+  );
+  const dispatch = useDispatch<AppDispatch>();
+
+  const findDuplicate = () => {
+    return cryptos.find(elem => elem.name === text || elem.symbol === text);
+  };
+
+  const findStock = () => {
+    return LocalCryptos.find(
+      elem => elem.name === text || elem.symbol === text,
+    );
+  };
+
+  const handleCrypto = () => {
+    try {
+      if (findDuplicate()) {
+        Alert.alert('error', 'Crypto already displayed');
+      } else if (!findStock()) {
+        Alert.alert('error', 'Crypto not available');
+      } else {
+        dispatch(GET_CRYPTOS(findStock() as cryptoType));
+      }
+      setModalVisible(!modalVisible);
+      onChangeText('');
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <View>
@@ -21,18 +58,30 @@ const AddCrypto = () => {
         onRequestClose={() => {
           setModalVisible.bind(null, !modalVisible);
         }}>
-        <Pressable
-          style={backbutton}
-          onPress={setModalVisible.bind(null, !modalVisible)}>
-          <Text style={backtext}>&lt;- Back to the list</Text>
+        <Pressable onPress={setModalVisible.bind(null, !modalVisible)}>
+          <BackText>&lt; Back to the list</BackText>
         </Pressable>
         <AddText>Add a Cryptocurrency</AddText>
-        <CryptoInput value={text} onChangeText={onChangeText} />
+        <CryptoInput
+          onBlur={setBorderColor.bind(null, theme.colors.gray)}
+          onFocus={setBorderColor.bind(null, theme.colors.CryptoInputColor)}
+          style={{borderColor}}
+          value={text}
+          onChangeText={onChangeText}
+          placeholder="Use a name or ticker symbol"
+        />
+        <Pressable onPress={handleCrypto}>
+          <ModalText
+            style={{
+              color:
+                text === '' ? theme.colors.lightgray : theme.colors.TopBarColor,
+            }}>
+            Add
+          </ModalText>
+        </Pressable>
       </Modal>
-      <Pressable
-        style={modbutton}
-        onPress={setModalVisible.bind(null, !modalVisible)}>
-        <Text style={modaltext}>+ Add a Cryptocurrency</Text>
+      <Pressable onPress={setModalVisible.bind(null, !modalVisible)}>
+        <OpenModalText>+ Add a Cryptocurrency</OpenModalText>
       </Pressable>
     </View>
   );

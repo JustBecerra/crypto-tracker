@@ -2,15 +2,19 @@ import styled from 'styled-components/native';
 import {theme} from '../../utils/theme';
 
 export const OneCrypto = styled.View`
-  width: 100%;
+  width: 88%;
   height: 100px;
   marginBottom: 10px;
+  borderBottomWidth: 0.2px;
+  borderBottomColor: solid ${theme.colors.dividergray};
+  display:flex;
+  alignSelf: center;
 `;
 
 export const NamesContainer = styled.View`
   width:25%;
   position: relative;
-  left: 22%;
+  left: 18%;
   top: 20%;
 `;
 
@@ -32,7 +36,7 @@ export const CryptoLogo = styled.Image`
   width: 45px;
   height: 45px;
   position:relative;
-  left: 30px;
+  left: 5px;
   top: 30px;
 `;
 
@@ -40,7 +44,7 @@ export const ActualValue = styled.Text`
   position: relative;
   fontSize: 20px;
   color: ${theme.colors.black};
-  left: 75%;
+  left: 82%;
   bottom: 65%;
 `;
 
@@ -62,6 +66,6 @@ export const Decrease = styled.Text`
 
 export const ArrowCont = styled.View`
   position:absolute;
-  right:15%;
+  right:7%;
   top:60%;
 `;
