@@ -1,8 +1,12 @@
 export interface cryptoType {
-  id: string;
-  symbol: string;
-  name: string;
-  value: string;
-  incDec: string;
-  imageURL: string;
+  Asset: {
+    id: string;
+    symbol: string;
+    name: string;
+    slug: string;
+  };
+  market_data: {
+    price_usd: number;
+    percent_change_usd_last_24_hours: number;
+  };
 }

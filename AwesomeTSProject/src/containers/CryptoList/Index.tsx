@@ -14,7 +14,7 @@ const CryptoList = () => {
     <Scrolls>
       {cryptos &&
         cryptos.map(c => {
-          return <SingleCrypto key={c.id} {...c} />;
+          return <SingleCrypto key={c.Asset.id} {...c} />;
         })}
       <AddCrypto />
     </Scrolls>
