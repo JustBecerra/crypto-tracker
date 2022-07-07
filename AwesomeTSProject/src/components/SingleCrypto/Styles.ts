@@ -15,7 +15,7 @@ export const NamesContainer = styled.View`
   width:25%;
   position: relative;
   left: 18%;
-  top: 30%;
+  bottom: 14%;
 `;
 
 export const CryptoName = styled.Text`
@@ -29,8 +29,8 @@ export const CryptoSymbol = styled.Text`
 `;
 
 export const CryptoLogo = styled.Image`
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
   position:relative;
   left: 5px;
   top: 30px;
@@ -41,14 +41,14 @@ export const ActualValue = styled.Text`
   fontSize: 16px;
   color: ${theme.colors.black};
   textAlign:right;
-  bottom: 15%;
+  bottom: 55%;
 `;
 
 export const Increase = styled.Text`
   position: relative;
   fontSize: 14px;
   color: ${theme.colors.green};
-  left: 60%;
+  left: 65%;
   bottom: 55%;
 `;
 
@@ -56,7 +56,7 @@ export const Decrease = styled.Text`
   position: relative;
   fontSize: 14px;
   color: ${theme.colors.red};
-  left: 60%;
+  left: 65%;
   bottom: 55%;
 `;
 

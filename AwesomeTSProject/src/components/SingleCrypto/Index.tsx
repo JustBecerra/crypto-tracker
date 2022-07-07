@@ -14,10 +14,11 @@ import {
 import IncreaseArrow from '../../../assets/increaseArrow.png';
 import DecreaseArrow from '../../../assets/decreaseArrow.png';
 import {Image} from 'react-native';
+import {logos} from '../../utils/logoFinder';
 
 const SingleCrypto = ({Asset, market_data}: cryptoType) => (
   <OneCrypto>
-    {/* <CryptoLogo source={imageURL} /> */}
+    <CryptoLogo source={logos(Asset.slug)} />
     <NamesContainer>
       <CryptoName>{Asset.name}</CryptoName>
       <CryptoSymbol>{Asset.symbol}</CryptoSymbol>
