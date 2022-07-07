@@ -14,24 +14,29 @@ import {
 import IncreaseArrow from '../../../assets/increaseArrow.png';
 import DecreaseArrow from '../../../assets/decreaseArrow.png';
 import {Image} from 'react-native';
+import {logos} from '../../utils/logoFinder';
 
-const SingleCrypto = ({name, symbol, value, incDec, imageURL}: cryptoType) => (
+const SingleCrypto = ({Asset, market_data}: cryptoType) => (
   <OneCrypto>
-    <CryptoLogo source={imageURL} />
+    <CryptoLogo source={logos(Asset.slug)} />
     <NamesContainer>
-      <CryptoName>{name}</CryptoName>
-      <CryptoSymbol>{symbol}</CryptoSymbol>
+      <CryptoName>{Asset.name}</CryptoName>
+      <CryptoSymbol>{Asset.symbol}</CryptoSymbol>
     </NamesContainer>
-    <ActualValue>${value}</ActualValue>
-    {parseInt(incDec, 10) > 2 ? (
+    <ActualValue>${market_data.price_usd.toFixed(2)}</ActualValue>
+    {market_data.percent_change_usd_last_24_hours > 2 ? (
       <ArrowCont>
         <Image source={IncreaseArrow} />
-        <Increase>{incDec}%</Increase>
+        <Increase>
+          {market_data.percent_change_usd_last_24_hours.toFixed(2)}%
+        </Increase>
       </ArrowCont>
     ) : (
       <ArrowCont>
         <Image source={DecreaseArrow} />
-        <Decrease>{incDec}%</Decrease>
+        <Decrease>
+          {market_data.percent_change_usd_last_24_hours.toFixed(2)}%
+        </Decrease>
       </ArrowCont>
     )}
   </OneCrypto>
