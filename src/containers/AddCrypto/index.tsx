@@ -9,9 +9,7 @@ import {
 } from './styles';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppDispatch, RootState} from '../../../store';
-import {GET_CRYPTOS} from '../../../store/reducer/RootReducer';
-import LocalCryptos from '../../../store/localAPI/local';
-import {cryptoType} from '../../../store/types/CryptoTypes';
+import {fetchCrypto} from '../../../store/reducer/RootReducer';
 import {theme} from '../../utils/theme';
 
 const AddCrypto = () => {
@@ -25,12 +23,11 @@ const AddCrypto = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const findDuplicate = () => {
-    return cryptos.find(elem => elem.name === text || elem.symbol === text);
-  };
-
-  const findStock = () => {
-    return LocalCryptos.find(
-      elem => elem.name === text || elem.symbol === text,
+    return cryptos.find(
+      elem =>
+        elem.Asset.name === text ||
+        elem.Asset.symbol === text ||
+        elem.Asset.slug === text,
     );
   };
 
@@ -38,10 +35,8 @@ const AddCrypto = () => {
     try {
       if (findDuplicate()) {
         Alert.alert('error', 'Crypto already displayed');
-      } else if (!findStock()) {
-        Alert.alert('error', 'Crypto not available');
       } else {
-        dispatch(GET_CRYPTOS(findStock() as cryptoType));
+        dispatch(fetchCrypto(text));
       }
       setModalVisible(!modalVisible);
       onChangeText('');

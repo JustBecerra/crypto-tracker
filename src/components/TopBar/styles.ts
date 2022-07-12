@@ -16,7 +16,7 @@ export const TopBarSection = styled.View`
 `;
 
 export const Title = styled.Text`
-    color: #ffffff;
+    color: ${theme.colors.white};
     fontSize: 20px;
     fontWeight: bold;
     position:relative;

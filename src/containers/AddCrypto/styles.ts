@@ -11,12 +11,12 @@ export const CryptoInput = styled.TextInput`
 `;
 
 export const AddText = styled.Text`
-  fontSize: 24px;
+  fontsize: 24px;
   color: ${theme.colors.black};
   position: relative;
   top: 35%;
   left: 6%;
-  lineheight:36px;
+  lineHeight: 36px;
   fontWeight: 700;
   fontFamily: Inter;
   letterSpacing: 0.25px;
@@ -37,7 +37,7 @@ export const OpenModalText = styled.Text`
   fontSize: 16px;
   lineHeight: 24px;
   color: ${theme.colors.TopBarColor};
-  textAlign:center;
+  textAlign: center;
   fontFamily: Inter;
 `;
 
@@ -47,7 +47,7 @@ export const ModalText = styled.Text`
   fontWeight: 600;
   letterSpacing: 0.25px;
   color: ${theme.colors.TopBarColor};
-  backgroundColor:${theme.colors.CryptoInputColor};
+  backgroundColor: ${theme.colors.CryptoInputColor};
   textAlign: center;
   textAlignVertical: center;
   width: 155px;
