@@ -11,7 +11,7 @@ export const CryptoInput = styled.TextInput`
 `;
 
 export const AddText = styled.Text`
-  fontsize: 24px;
+  fontSize: 24px;
   color: ${theme.colors.black};
   position: relative;
   top: 35%;
