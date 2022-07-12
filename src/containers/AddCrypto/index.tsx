@@ -10,8 +10,6 @@ import {
 import {useDispatch, useSelector} from 'react-redux';
 import {AppDispatch, RootState} from '../../../store';
 import {fetchCrypto} from '../../../store/reducer/RootReducer';
-import LocalCryptos from '../../../store/localAPI/local';
-import {cryptoType} from '../../../store/types/CryptoTypes';
 import {theme} from '../../utils/theme';
 
 const AddCrypto = () => {
