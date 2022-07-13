@@ -11,6 +11,7 @@ export const fetchCrypto = createAsyncThunk(
   },
 );
 
+
 export const updateCrypto = createAsyncThunk(
   'selectedCrypto/updateCrypto',
   async (slugs: string[]) => {
@@ -24,6 +25,7 @@ export const updateCrypto = createAsyncThunk(
     return newData;
   },
 );
+
 
 export const RootReducer = createSlice({
   name: 'cryptos',
@@ -49,6 +51,7 @@ export const RootReducer = createSlice({
     builder.addCase(fetchCrypto.rejected, state => {
       state.loading = false;
     });
+
     builder.addCase(updateCrypto.fulfilled, (state, action) => {
       state.cryptos = action.payload;
     });
@@ -56,5 +59,6 @@ export const RootReducer = createSlice({
 });
 
 export const {ERASE_CRYPTO} = RootReducer.actions;
+
 
 export default RootReducer.reducer;

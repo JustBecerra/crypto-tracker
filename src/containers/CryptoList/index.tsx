@@ -1,3 +1,4 @@
+
 import React, {useEffect} from 'react';
 import SingleCrypto from '../SingleCrypto';
 import {Scrolls} from './styles';
@@ -12,13 +13,13 @@ const CryptoList = () => {
     (state: RootState) => state.selectedCrypto.cryptos,
   );
 
+
   useEffect(() => {
     const timerId = setInterval(() => {
       dispatch(updateCrypto(cryptos.map(c => c.Asset.slug)));
     }, 6000);
     return () => clearInterval(timerId);
   });
-
   return (
     <Scrolls>
       {cryptos &&
