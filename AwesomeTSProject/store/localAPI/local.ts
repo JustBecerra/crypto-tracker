@@ -2,7 +2,7 @@ import {cryptoType} from '../types/CryptoTypes';
 
 const LocalCryptos: cryptoType[] = [
   {
-    id: 'BC',
+    id: 'BCT',
     symbol: 'BCT',
     name: 'Bitcoin',
     value: '1.234',
