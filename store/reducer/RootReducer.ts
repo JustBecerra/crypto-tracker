@@ -11,6 +11,20 @@ export const fetchCrypto = createAsyncThunk(
   },
 );
 
+export const updateCrypto = createAsyncThunk(
+  'selectedCrypto/updateCrypto',
+  async (slugs: string[]) => {
+    let newData: cryptoType[] = [];
+    for (let i = 0; i < slugs.length; i++) {
+      let response = await fetch(
+        `https://data.messari.io/api/v1/assets/${slugs[i]}/metrics/market-data`,
+      );
+      newData.push((await response.json()).data);
+    }
+    return newData;
+  },
+);
+
 export const RootReducer = createSlice({
   name: 'cryptos',
   initialState: {
@@ -18,8 +32,10 @@ export const RootReducer = createSlice({
     loading: false,
   },
   reducers: {
-    GET_CRYPTOS: (state, action: PayloadAction<cryptoType>) => {
-      state.cryptos.push(action.payload);
+    ERASE_CRYPTO: (state, action: PayloadAction<string>) => {
+      state.cryptos = state.cryptos.filter(
+        cryp => cryp.Asset.slug !== action.payload,
+      );
     },
   },
   extraReducers: builder => {
@@ -33,9 +49,12 @@ export const RootReducer = createSlice({
     builder.addCase(fetchCrypto.rejected, state => {
       state.loading = false;
     });
+    builder.addCase(updateCrypto.fulfilled, (state, action) => {
+      state.cryptos = action.payload;
+    });
   },
 });
 
-export const {GET_CRYPTOS} = RootReducer.actions;
+export const {ERASE_CRYPTO} = RootReducer.actions;
 
 export default RootReducer.reducer;
