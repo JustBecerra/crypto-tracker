@@ -27,7 +27,7 @@ const SingleCrypto = ({Asset, market_data}: cryptoType) => {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={() => handleErase(Asset.slug)}>
+    <TouchableWithoutFeedback onPress={handleErase.bind(null, Asset.slug)}>
       <OneCrypto>
         <CryptoLogo source={logos(Asset.slug)} />
         <NamesContainer>
@@ -35,21 +35,18 @@ const SingleCrypto = ({Asset, market_data}: cryptoType) => {
           <CryptoSymbol>{Asset.symbol}</CryptoSymbol>
         </NamesContainer>
         <ActualValue>${market_data.price_usd.toFixed(2)}</ActualValue>
-        {market_data.percent_change_usd_last_24_hours > 2 ? (
-          <ArrowCont>
-            <Image source={IncreaseArrow} />
-            <Increase>
-              {market_data.percent_change_usd_last_24_hours.toFixed(2)}%
-            </Increase>
-          </ArrowCont>
-        ) : (
-          <ArrowCont>
-            <Image source={DecreaseArrow} />
-            <Decrease>
-              {market_data.percent_change_usd_last_24_hours.toFixed(2)}%
-            </Decrease>
-          </ArrowCont>
-        )}
+        <ArrowCont>
+          <Image
+            source={
+              market_data.percent_change_usd_last_24_hours > 2
+                ? IncreaseArrow
+                : DecreaseArrow
+            }
+          />
+          <Increase>
+            {market_data.percent_change_usd_last_24_hours.toFixed(2)}%
+          </Increase>
+        </ArrowCont>
       </OneCrypto>
     </TouchableWithoutFeedback>
   );
