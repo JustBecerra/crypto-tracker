@@ -11,45 +11,45 @@ export const CryptoInput = styled.TextInput`
 `;
 
 export const AddText = styled.Text`
-  fontSize: 24px;
+  fontsize: 24px;
   color: ${theme.colors.black};
   position: relative;
   top: 35%;
   left: 6%;
-  lineheight:36px;
-  fontWeight: 700;
-  fontFamily: Inter;
-  letterSpacing: 0.25px;
+  lineheight: 36px;
+  fontweight: 700;
+  fontfamily: Inter;
+  letterspacing: 0.25px;
 `;
 
 export const BackText = styled.Text`
-  fontSize: 16px;
-  lineHeight: 24px;
-  fontWeight: 400;
+  fontsize: 16px;
+  lineheight: 24px;
+  fontweight: 400;
   color: ${theme.colors.TopBarColor};
-  paddingLeft: 10px;
-  paddingTop: 10px;
-  fontFamily: Inter;
+  paddingleft: 10px;
+  paddingtop: 10px;
+  fontfamily: Inter;
 `;
 
 export const OpenModalText = styled.Text`
-  marginTop: 50px;
-  fontSize: 16px;
-  lineHeight: 24px;
+  margintop: 50px;
+  fontsize: 16px;
+  lineheight: 24px;
   color: ${theme.colors.TopBarColor};
-  textAlign:center;
-  fontFamily: Inter;
+  textalign: center;
+  fontfamily: Inter;
 `;
 
 export const ModalText = styled.Text`
-  fontSize: 18px;
-  lineHeight: 24px;
-  fontWeight: 600;
-  letterSpacing: 0.25px;
+  fontsize: 18px;
+  lineheight: 24px;
+  fontweight: 600;
+  letterspacing: 0.25px;
   color: ${theme.colors.TopBarColor};
-  backgroundColor:${theme.colors.CryptoInputColor};
-  textAlign: center;
-  textAlignVertical: center;
+  backgroundcolor: ${theme.colors.CryptoInputColor};
+  textalign: center;
+  textalignvertical: center;
   width: 155px;
   height: 48px;
   position: relative;

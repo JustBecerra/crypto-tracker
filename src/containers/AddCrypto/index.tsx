@@ -24,7 +24,10 @@ const AddCrypto = () => {
 
   const findDuplicate = () => {
     return cryptos.find(
-      elem => elem.Asset.name === text || elem.Asset.symbol === text,
+      elem =>
+        elem.Asset.name === text ||
+        elem.Asset.symbol === text ||
+        elem.Asset.slug === text,
     );
   };
 
